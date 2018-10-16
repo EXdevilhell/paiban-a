@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <meta charset="utf-8"/>
+        <title>&nbsp;空闲&nbsp;表生成</title>
+        <style>
+            table{
+                border-collapse:collapse;
+                border:#000 solid 3px;
+                width:90%;
+                margin: auto;
+                min-width: 600px;
+                max-width: 1400px;
+            }
+            
+            thead{
+                background-color:#000066;
+                color:#fff;
+                font-size:1.5em;
+            }
+            
+            table h1{
+                font-size: 1.5em;
+                font-family:"华文行楷";
+                margin:0 0 -0.8em 0;
+            }
+            
+            td,th{
+                border:1px solid #000;
+                padding: 0.4em 0.1em;
+                width: 16.66%;
+                min-height:3em;
+                text-align: center;
+            }
+            .short{
+                width:8.33%;
+            }
+            .freebtn{
+                color:#fff;                
+                cursor: pointer;
+            }
+            .freebtn:hover{
+                background: #0f0;
+                color: #000;
+            }
+            .freetime{
+                color:#f00;
+                background: #ff0 !important;
+            }
+            .freetime:hover{
+                color:#000;
+                text-decoration: line-through; 
+            }
+            .h1{
+                font-size: 1.8em;
+                width: 100%;
+                text-align: center;
+                background-image: url(head.png);
+                background-repeat: no-repeat;
+                background-position: center;
+                margin: 1em 0;
+            }
+            .h1 input{
+                width: 5em;
+                height: 2em;
+                margin: 70px 0;
+            }
+            article:first-child{
+                border: 3px solid;
+                padding: 0 0.5em 0.5em;
+                width: 21em;
+                margin: 0 auto;
+            }
+            .sumbtn{
+                font-size: 2em;
+                display: block;
+                width: 15em;
+                margin: 1em auto;
+            }
+        </style>
+    </head>
+    <body>
+       <article>
+          <h1>**********使用说明**********</h1>
+           <dl>
+               <dt>step 1：</dt>
+               <dd>输入你的名字</dd>
+               <dt>step 2：</dt>
+               <dd>选择你的空闲表</dd>
+               <dt>step 3：</dt>
+               <dd>检查确认表格内信息无误，点击最下按钮</dd>
+               
+           </dl>
+           **********************************************
+       </article>
+        <section class="h1">         
+          <label for="user-name">输入你的名字：</label>
+          <input id="user-name" type="text" name="userName">
+        </section>
+        
+       <table>
+           <thead>
+                <tr>
+                    <th colspan="7"><h1>网信中心学生团队</h1><br><span id="title-name"></span></th>
+                </tr>                
+            </thead>
+            <tbody>
+                <tr>
+                    <th colspan="2"></th>
+                    <th>星期一</th>
+                    <th>星期二</th>
+                    <th>星期三</th>
+                    <th>星期四</th>
+                    <th>星期五</th>
+                </tr>
+                <tr>
+                    <th rowspan="2" class="short">上午</th>
+                    <th class="short">1-2节</th>
+                    <td class="freebtn" title="添加/删除空闲时段">&nbsp;空闲&nbsp;</td>
+                    <td class="freebtn" title="添加/删除空闲时段">&nbsp;空闲&nbsp;</td>
+                    <td class="freebtn" title="添加/删除空闲时段">&nbsp;空闲&nbsp;</td>
+                    <td class="freebtn" title="添加/删除空闲时段">&nbsp;空闲&nbsp;</td>
+                    <td class="freebtn" title="添加/删除空闲时段">&nbsp;空闲&nbsp;</td>
+                </tr>
+                <tr>
+                    <th class="short">3-5节</th>
+                    <td class="freebtn" title="添加/删除空闲时段">&nbsp;空闲&nbsp;</td>
+                    <td class="freebtn" title="添加/删除空闲时段">&nbsp;空闲&nbsp;</td>
+                    <td class="freebtn" title="添加/删除空闲时段">&nbsp;空闲&nbsp;</td>
+                    <td class="freebtn" title="添加/删除空闲时段">&nbsp;空闲&nbsp;</td>
+                    <td class="freebtn" title="添加/删除空闲时段">&nbsp;空闲&nbsp;</td>
+                </tr>
+                <tr>
+                    <th colspan="2">中午</th>
+                    <td colspan="5"></td>
+                    
+                </tr>
+                <tr>
+                    <th rowspan="2" class="short">下午</th>
+                    <th class="short">6-7节</th>
+                    <td class="freebtn" title="添加/删除空闲时段">&nbsp;空闲&nbsp;</td>
+                    <td class="freebtn" title="添加/删除空闲时段">&nbsp;空闲&nbsp;</td>
+                    <td class="freebtn" title="添加/删除空闲时段">&nbsp;空闲&nbsp;</td>
+                    <td class="freebtn freetime" title="添加/删除空闲时段">&nbsp;空闲&nbsp;</td>
+                    <td class="freebtn" title="添加/删除空闲时段">&nbsp;空闲&nbsp;</td>
+                </tr>
+                <tr>
+                    <th class="short">8-9节</th>
+                    <td class="freebtn" title="添加/删除空闲时段">&nbsp;空闲&nbsp;</td>
+                    <td class="freebtn" title="添加/删除空闲时段">&nbsp;空闲&nbsp;</td>
+                    <td class="freebtn" title="添加/删除空闲时段">&nbsp;空闲&nbsp;</td>
+                    <td class="freebtn freetime" title="添加/删除空闲时段">&nbsp;空闲&nbsp;</td>
+                    <td class="freebtn" title="添加/删除空闲时段">&nbsp;空闲&nbsp;</td>
+                </tr>
+                <tr>
+                    <th colspan="2">晚饭</th>
+                    <td colspan="5"></td>
+                </tr>
+                <tr>
+                    <th class="short">晚上</th>
+                    <th class="short">10-12节</th>
+                    <td class="freebtn" title="添加/删除空闲时段">&nbsp;空闲&nbsp;</td>
+                    <td class="freebtn" title="添加/删除空闲时段">&nbsp;空闲&nbsp;</td>
+                    <td class="freebtn" title="添加/删除空闲时段">&nbsp;空闲&nbsp;</td>
+                    <td class="freebtn" title="添加/删除空闲时段">&nbsp;空闲&nbsp;</td>
+                    <td class="freebtn" title="添加/删除空闲时段">&nbsp;空闲&nbsp;</td>
+                </tr>
+            </tbody>
+        </table>
+        <button onclick="submit()" class="sumbtn">确认表格无误,点此提交</button>
+        <script>
+            /**
+             *遍历数组
+             *arr：对象数组
+             *action:对每一个元素应用的方法
+            */
+            function forEachIn(arr,action){
+                for(var i=0;i<arr.length;i++){
+                    action(arr[i]);
+                }
+            }
+            
+            //添加/删除空闲时段
+            forEachIn(document.getElementsByClassName('freebtn'),function(e){e.addEventListener('click',function(){
+                var flag =false;
+                forEachIn(this.classList,function(e){
+                    if(e==='freetime') 
+                        flag=true
+                })
+                if(flag) this.classList.remove('freetime')
+                else this.classList.add('freetime')})
+            })
+            
+            //输入你的名字
+            document.getElementById('user-name').addEventListener('change',function(){
+                if(this.value!='')
+                    document.getElementById('title-name').innerHTML=this.value+'的空闲统计'                
+            })
+            
+            
+            //统计空闲信息，返回数组1为有空，0为没空
+            function getFreeCode(){
+                var freeCode=[];
+                forEachIn(document.getElementsByClassName('freebtn'),function(e){
+                    var isFree=false
+                    forEachIn(e.classList,function(className){
+                        if(className==='freetime') 
+                            isFree=true;
+                    })
+                    if(isFree) freeCode.push(1)
+                    else freeCode.push(0)
+                })
+                return freeCode
+            }
+            
+            function submit(){
+                var name=document.getElementById('title-name').firstChild
+                if(name==null) {
+                    alert('输入你的名字先')
+                    return
+                }
+                else name=document.getElementById('title-name').firstChild.nodeValue.slice(0,-5)
+                var freeCode=getFreeCode().join('')
+                
+                document.body.innerHTML='<section>复制以下信息发给排班der：<p style="font-size:2em;color:red">&nbsp;&nbsp;'+name+':'+freeCode+'</p></section><br><a href="">信息有误，点击刷新</a>'
+                
+            }
+            
+        </script>    
+    </body>
+</html>
