@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>白色竹鼠</title>
+        <style>
+            /*表格部分*/
+            #info{
+                display: block;
+                margin: 0 auto;
+                width: 90%;
+                min-height: 15em;
+                max-height: auto;
+            }
+            table{
+                border-collapse:collapse;
+                border:#000 solid 3px;
+                width:90%;
+                margin: auto;
+                min-width: 600px;
+                max-width: 1400px;
+            }
+            
+            thead{
+                background-color:#000066;
+                color:#fff;
+                font-size:1.5em;
+            }
+            
+            table h1{
+                font-size: 1.5em;
+                font-family:"华文行楷";
+                margin:0 0 -0.8em 0;
+            }
+            
+            td,th{
+                border:1px solid #000;
+                padding: 0.4em 0.1em;
+                width: 16.66%;
+                min-height:3em;
+                text-align: center;
+            }
+            .short{
+                width:8.33%;
+            } 
+            
+            .class-time span{
+                font-size: 0.5em;
+                display: inline-block;
+                margin: 0 0.5em 0 0;
+                cursor: pointer;
+            }
+            .food-class{
+                color: #0080ff;
+            }
+            /*其他部分*/
+            #count,#classCount{
+                display: block;
+                width: 8em;
+                padding-right: 1em;
+                border: 1px solid
+            }
+            
+            .class-name span{
+                display: inline-block;;
+                margin:0.1em 0.2em;
+                cursor: pointer;
+            }
+            .table{
+                display: flex;
+                justify-content: center;
+            }
+             .over{
+                background-color: #ff0;
+            }
+            
+            .hover{
+                font-size: 1.1em!important;
+            }
+            .class-time .hover{
+                border: 1px solid;
+            }
+            .class-name .hover{
+                text-decoration: line-through;
+            }
+            #autoOff,#autoOn{
+                font-size: 1.2em;
+                margin: 0 auto;
+            }
+            .food-input lable{
+                margin: 0.5em 1.5em 0.5em 0;
+            }
+            .food-input input{
+                width: 5em;
+            }
+        </style>
+    </head>
+    <body>
+        <section>
+            <h1>输入所有信息</h1>
+            <textarea id="info"></textarea>
+        </section>
+        <section class="table">
+           <section>
+            <h1>空闲表</h1>
+            <table>
+           <thead>
+                <tr>
+                    <th colspan="7">网信中心学生团队空闲统计</th>
+                </tr>                
+            </thead>
+            <tbody>
+                <tr>
+                    <th colspan="2"></th>
+                    <th>星期一</th>
+                    <th>星期二</th>
+                    <th>星期三</th>
+                    <th>星期四</th>
+                    <th>星期五</th>
+                </tr>
+                <tr>
+                    <th rowspan="2" class="short">上午</th>
+                    <th class="short">1-2节</th>
+                    <td class="class-time" ></td>
+                    <td class="class-time" ></td>
+                    <td class="class-time" ></td>
+                    <td class="class-time" ></td>
+                    <td class="class-time" ></td>
+                </tr>
+                <tr>
+                    <th class="short">3-5节</th>
+                    <td class="class-time" ></td>
+                    <td class="class-time" ></td>
+                    <td class="class-time" ></td>
+                    <td class="class-time" ></td>
+                    <td class="class-time" ></td>
+                </tr>
+<!--
+                <tr>
+                    <th colspan="2">中午</th>
+                    <td colspan="5"></td>
+                    
+                </tr>
+-->
+                <tr>
+                    <th rowspan="2" class="short">下午</th>
+                    <th class="short">6-7节</th>
+                    <td class="class-time" ></td>
+                    <td class="class-time" ></td>
+                    <td class="class-time" ></td>
+                    <td class="class-time" ></td>
+                    <td class="class-time" ></td>
+                </tr>
+                <tr>
+                    <th class="short">8-9节</th>
+                    <td class="class-time" ></td>
+                    <td class="class-time" ></td>
+                    <td class="class-time" ></td>
+                    <td class="class-time" ></td>
+                    <td class="class-time" ></td>
+                </tr>
+<!--
+                <tr>
+                    <th colspan="2">晚饭</th>
+                    <td colspan="5"></td>
+                </tr>
+-->
+                <tr>
+                    <th class="short">晚上</th>
+                    <th class="short">10-12节</th>
+                    <td class="class-time" ></td>
+                    <td class="class-time" ></td>
+                    <td class="class-time" ></td>
+                    <td class="class-time" ></td>
+                    <td class="class-time" ></td>
+                </tr>
+            </tbody>
+        </table>
+        </section>
+            <section>
+            <h1>空闲数量统计</h1>
+            <ol id='count'>
+                导入信息先
+            </ol>
+        </section>
+        </section>
+        <section class="table">
+           <section>
+            <h1>值班表</h1>
+            
+            <table>
+           <thead>
+                <tr>
+                    <th colspan="7">网信中心学生团队<br><span id="seasonInfo"></span>值班表</th>
+                </tr>                
+            </thead>
+            <tbody>
+                <tr>
+                    <th colspan="2"></th>
+                    <th>星期一</th>
+                    <th>星期二</th>
+                    <th>星期三</th>
+                    <th>星期四</th>
+                    <th>星期五</th>
+                </tr>
+                <tr>
+                    <th rowspan="2" class="short">上午</th>
+                    <th class="short">1-2节</th>
+                    <td class="class-name" ></td>
+                    <td class="class-name" ></td>
+                    <td class="class-name" ></td>
+                    <td class="class-name" ></td>
+                    <td class="class-name" ></td>
+                </tr>
+                <tr>
+                    <th class="short">3-5节</th>
+                    <td class="class-name" ></td>
+                    <td class="class-name" ></td>
+                    <td class="class-name" ></td>
+                    <td class="class-name" ></td>
+                    <td class="class-name" ></td>
+                </tr>
+                <tr class="food-class">
+                    <th colspan="2">中午</th>
+                    <td class='food-time'></td>
+                    <td class='food-time'></td>
+                    <td class='food-time'></td>
+                    <td class='food-time'></td>
+                    <td class='food-time'></td>
+                    
+                </tr>
+                <tr>
+                    <th rowspan="2" class="short">下午</th>
+                    <th class="short">6-7节</th>
+                    <td class="class-name" ></td>
+                    <td class="class-name" ></td>
+                    <td class="class-name" ></td>
+                    <td class="class-name" ></td>
+                    <td class="class-name" ></td>
+                </tr>
+                <tr>
+                    <th class="short">8-9节</th>
+                    <td class="class-name" ></td>
+                    <td class="class-name" ></td>
+                    <td class="class-name" ></td>
+                    <td class="class-name" ></td>
+                    <td class="class-name" ></td>
+                </tr>
+                <tr class="food-class">
+                    <th colspan="2">晚饭</th>
+                    <td class='food-time'></td>
+                    <td class='food-time'></td>
+                    <td class='food-time'></td>
+                    <td class='food-time'></td>
+                    <td class='food-time'></td>
+                </tr>
+                <tr>
+                    <th class="short">晚上</th>
+                    <th class="short">10-12节</th>
+                    <td class="class-name" ></td>
+                    <td class="class-name" ></td>
+                    <td class="class-name" ></td>
+                    <td class="class-name" ></td>
+                    <td class="class-name" ></td>
+                </tr>
+            </tbody>
+        </table>
+        </section>
+            <section>
+            <h1>班数统计</h1>
+            <ol id='classCount'>
+                导入信息先
+            </ol>
+            <button id="autoOff">手动排班</button>
+            <br><br>
+            <button id="autoOn">自动排班</button>
+        </section>
+        </section>
+        <section>
+            <h1>其他信息</h1>
+            <h2>表头信息：</h2>
+            <input type="text" onchange="document.getElementById('seasonInfo').innerHTML=this.value"><lable>时间：如 2018年冬季</lable>
+            <h2>饭班：</h2>
+            <p class="food-input">
+            <input type="text" onchange="document.getElementsByClassName('food-time')[0].innerHTML=this.value"><lable>星期一午饭</lable>
+            <input type="text" onchange="document.getElementsByClassName('food-time')[1].innerHTML=this.value"><lable>星期二午饭</lable>
+            <input type="text" onchange="document.getElementsByClassName('food-time')[2].innerHTML=this.value"><lable>星期三午饭</lable>
+            <input type="text" onchange="document.getElementsByClassName('food-time')[3].innerHTML=this.value"><lable>星期四午饭</lable>
+            <input type="text" onchange="document.getElementsByClassName('food-time')[4].innerHTML=this.value"><lable>星期五午饭</lable>
+            <br>
+            <input type="text" onchange="document.getElementsByClassName('food-time')[5].innerHTML=this.value"><lable>星期一晚饭</lable>
+            <input type="text" onchange="document.getElementsByClassName('food-time')[6].innerHTML=this.value"><lable>星期二晚饭</lable>
+            <input type="text" onchange="document.getElementsByClassName('food-time')[7].innerHTML=this.value"><lable>星期三晚饭</lable>
+            <input type="text" onchange="document.getElementsByClassName('food-time')[8].innerHTML=this.value"><lable>星期四晚饭</lable>
+            <input type="text" onchange="document.getElementsByClassName('food-time')[9].innerHTML=this.value"><lable>星期五晚饭</lable>
+            </p>
+        </section>
+        <script>
+             /**
+             *遍历数组
+             *arr：对象数组
+             *action:对每一个元素应用的方法
+            */
+            function forEachIn(arr,action){
+                for(var i=0;i<arr.length;i++){
+                    action(arr[i]);
+                }
+            }
+            /**
+             *映射数组
+             *基于遍历数组
+             *arr：对象数组
+             *action：对每一个元素应用的方法，要有返回值
+             *返回逐个改变过的数组
+            */
+            function filter(arr,action){
+                var result=[];
+                forEachIn(arr,function(e){
+                    result.push(action(e))
+                })
+                return result
+            }
+                            
+            //从最上表单取出信息，返回格式化后的每个人发的字符串组成的数组['XXX:010101……','BBB:010101……']
+            function getinfo(){
+                var info = document.getElementById('info').value.match(/[\u4e00-\u9fa5]{2,}(:|：)(0|1){25}/g)
+                if(info==null){
+                    alert('输入信息过于抽象')
+                    return
+                }
+                info = filter(info,function(e){return e.replace(/\：/,':')}) 
+                return info;
+            }
+            
+            
+            /**
+             *空闲表对象
+             *构造函数FreeTable(namelist),参数代表每节班的代号数组
+             *info是初始字符串数组
+             *nameList是名字与空闲信息字符串对应的字典,运行过一次renew（）之后改成空闲统计对象
+             *form是一个三维对象包含每节课（A1、A2……），每节课包含一个名单，每个名字的值代表本节课是否空闲
+             *             
+             *newNameList()实时从form统计班数统计对象，返回格式同nameList
+             *renew(className,id) 根据form更新table和空闲数量统计表,chassName为目标td元素的class，id为对应统计表ol元素的id
+             *原型方法 change(className,who)，用来改变form中某节班中某人的值（0、1取反），className为A1、A2……D5等，who是中文名
+             *原型方法findPerson()，返回班数最多的人，数量相同返回nameList中靠前的
+             *原型方法check(className),返回目标班次当前人数，参数className为A1、A2……D5等
+             *原型方法auto()自动排班，改变form的值;总人数大于12每人4个班，否则5个班
+            */
+            function FreeTable(name_arr){
+                var that=this
+                
+                this.info=getinfo()                
+                
+                this.nameList=function(){
+                    var res={}
+                    forEachIn(that.info,function(e){
+                        var arr = e.split(":")
+                        res[arr[0]]=arr[1]
+                    })
+                    return res
+                }();
+                
+                this.form=function(){
+                    var res={}
+                    for(var i=0;i<25;i++){
+                        var obj={}
+                        for(var name in that.nameList){                            
+                            obj[name]=Number(that.nameList[name][i])
+                        }
+                        res[name_arr[i]]=obj
+                    }
+                    return res
+                }()
+                
+                this.newNameList=function(){
+                    var arr={}
+                    for(var name in that.nameList){
+                        arr[name]=0;
+                        for(var key in that.form){
+                            that.form[key][name]?arr[name]++:arr;
+                        }
+                    }
+                    return arr
+                }
+                
+                this.renew=function(className,id){
+                    var tableList = document.getElementsByClassName(className)
+                    //清空表格
+                    forEachIn(tableList,function(e){e.innerHTML=''})
+                    
+                    //写入表格
+                    for(var i in tableList){
+                        for(var name in that.form[name_arr[i]]){
+                            if(that.form[name_arr[i]][name]){
+                                var span = document.createElement("span")
+                                var NAME = document.createTextNode(name)
+                                span.appendChild(NAME)
+                                span.classList.add('freetime')
+                                span.classList.add(name)
+                                span.setAttribute('class-ID',name_arr[i])
+                                tableList[i].appendChild(span)
+                            }
+                        }
+                    }
+                    
+                    //统计表写入
+                    var arr={}
+                    for(var name in that.nameList){
+                        arr[name]=0;
+                        for(var key in that.form){
+                            that.form[key][name]?arr[name]++:arr;
+                        }
+                    }                    
+                    var str=''
+                    for(var name in arr){
+                        str=str+'<li class="freetime '+name+'">'+name+'：'+arr[name]+'</li>'
+                    }
+                    document.getElementById(id).innerHTML=str 
+                    that.nameList=arr
+                }
+            }
+            //改变某个值
+            FreeTable.prototype.change=function(className,who){
+                this.form[className][who]?this.form[className][who]=0:this.form[className][who]=1
+           }
+            //找出班最多的人
+            FreeTable.prototype.findPerson=function(){
+                var flag=0
+                var res=''
+                for(var name in this.newNameList()){
+                    if(flag<this.newNameList()[name]){
+                        flag=this.newNameList()[name]
+                        res=name
+                    }
+                }
+                return res
+            }
+            //查出本节班有几个人
+            FreeTable.prototype.check=function(key){
+                var res = 0
+                for(var name in this.form[key]){
+                    res+=this.form[key][name]
+                }
+                return res
+            }
+            //自动排班
+            FreeTable.prototype.auto=function(){
+                var num = 5
+                if(Object.getOwnPropertyNames(this.nameList).length>12)
+                    num = 4
+                else 
+                    num = 5
+                var that = this
+                //同样人数的班次，优先删减的顺序
+                var ol = ['E1','E2','E3','E4','E5','A1','A2','A3','A4','A5','D2','B2',
+                          'B1','D3','D5','B3','B4','B5','C1','C2','C3','C5','C4','D1','D4']
+                //找出人最多的班次
+                var findMostClass = function(){
+                    var classNum = 0
+                    var which = ''
+                    forEachIn(ol,function(e){
+                        if(classNum<that.check(e)){
+                            classNum=that.check(e)
+                            which = e
+                        }
+                    })
+                    return which
+                }
+
+                while(true){
+                    //主逻辑，重复删除人最多的班次中，总班数最多的人
+                    var witch = findMostClass()
+                    var who = function(){
+                        var flag = 0
+                        var res = ''
+                        for(var name in that.form[witch]){
+                            if(that.form[witch][name]){
+                                if(that.newNameList()[name]>flag){
+                                    flag = that.newNameList()[name]
+                                    res = name
+                                }
+                            }                            
+                        }
+                        return res
+                    }()
+                                   
+                    if(that.newNameList()[who]<=num){
+                        //当主逻辑选中的人班次达到最低时，使用备用逻辑：找出班次最多的人，删除他所有班次中人数最多的一节  
+                        who = that.findPerson()
+                        witch = function(){
+                            var flag=0
+                            var res =''
+                            for(var key in that.form){
+                                if(that.form[key][who]){
+                                    if(flag<that.check(key)){
+                                        flag = that.check(key)
+                                        res = key
+                                    }
+                                }
+                            }
+                            return res
+                        }()
+                       
+                    }
+                    if(that.check(witch)<=2) break;//目标班次人数小于等于两个人
+                    if(that.newNameList()[that.findPerson()]<=num) break;//班次最多的人的班数小于等于目标值
+                    else that.change(witch,who) //删除操作          
+                }
+                
+           }
+            
+            
+            //对应时间表，字母为节数，数字为星期
+            var name_list=['A1','A2','A3','A4','A5',
+                           'B1','B2','B3','B4','B5',
+                           'C1','C2','C3','C4','C5',
+                           'D1','D2','D3','D4','D5',
+                           'E1','E2','E3','E4','E5']
+            
+            //文本域事件
+            var table
+            var addEvent//绑定事件函数
+            document.getElementById("info").addEventListener("change",function(){
+                table=new FreeTable(name_list)
+                table.renew('class-time','count')
+                table.auto()
+                table.renew('class-name','classCount')
+                addEvent =function(){for(var name in table.nameList){
+                    forEachIn(document.getElementsByClassName(name),function(e){
+                        e.addEventListener("mouseover",function(){
+                            this.classList.add('hover')
+                            var thisName=this.classList[1]
+                            forEachIn(document.getElementsByClassName(thisName),function(each){
+                                each.classList.add('over')
+                            })
+                        })
+                        e.addEventListener("mouseout",function(){
+                            this.classList.remove('hover')
+                            var thisName = this.classList[1]
+                            forEachIn(document.getElementsByClassName(thisName),function(each){
+                                each.classList.remove('over')
+                            })
+                        })                        
+                        e.onclick=function(){
+                            var classId =this.getAttribute('class-ID')
+                            var name = this.classList[1]
+                            if(classId){
+                                table.change(classId,name)
+                                table.renew('class-name','classCount')
+                                addEvent()
+                            }
+                        }
+                    })
+                }}
+                addEvent()
+            })
+            
+            //手动排班按钮
+            document.getElementById('autoOff').onclick=function(){
+                table=new FreeTable(name_list)
+                table.renew('class-time','count')
+                table.renew('class-name','classCount')
+                addEvent()
+            }
+            //自动排班按钮
+            document.getElementById('autoOn').onclick=function(){
+                table=new FreeTable(name_list)
+                table.renew('class-time','count')
+                table.auto()
+                table.renew('class-name','classCount')
+                addEvent()
+            }
+        </script>
+    </body>
+</html>
